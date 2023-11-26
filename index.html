@@ -1,56 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>jQuery Crash Course | Events</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<style>
-    body {
+    <style>
+      body {
         font-size: 17px;
         font-family: Arial, Helvetica, sans-serif;
         background-color: lightgray;
         line-height: 1.5m;
-    }
-    header {
+      }
+      header {
         background-color: black;
         color: white;
         padding: 20px;
         text-align: center;
         border-bottom: 10px black solid;
         margin-bottom: 10px;
-    }
-    #container {
+      }
+      #container {
         width: 90%;
 
         margin: auto;
         padding: 20px;
-    }
-    .para1 {
+      }
+      .para1 {
         margin-bottom: 20px;
-    }
-</style>
-</head>
-<body>
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <h1>jQuery Crash Course</h1>
+      <h1>jQuery Crash Course</h1>
     </header>
     <div id="container">
-<h3>Mouse Events</h3>
-<button id="btn1">Button</button>
-<button id="btn2">Button 2</button>
-<p class="para1">jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</p>
+      <h3>Mouse Events</h3>
+      <button id="btn1">Button</button>
+      <button id="btn2">Button 2</button>
+      <p class="para1">
+        jQuery is a fast, small, and feature-rich JavaScript library. It makes
+        things like HTML document traversal and manipulation, event handling,
+        animation, and Ajax much simpler with an easy-to-use API that works
+        across a multitude of browsers. With a combination of versatility and
+        extensibility, jQuery has changed the way that millions of people write
+        JavaScript.
+      </p>
+
+      <hr />
+      <form id="form">
+        <label>Name</label>
+        <br />
+        <input type="text" id="name" name="name" />
+        <br />
+        <label>Email</label>
+        <br />
+        <input type="emal" id="email" name="email" />
+        <br />
+        <label>Gender</label>
+        <br />
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
     </div>
     <script>
-    
-       $('#btn1').click(function(){
-            $('.para1').toggle();
-        });
+      $("#btn1").click(function () {
+        $(".para1").toggle();
+      });
 
-        $('#btn2').hover(function(){
-            $('.para1').toggle();
-        });
-       $('p.para1').css({color:'red',background: '#ccc'});
+      //     $('#btn2').hover(function(){
+      //         $('.para1').toggle();
+      //     });
+      //    $('p.para1').css({color:'red',background: '#ccc'});
+
+      $("#btn2").click(function (e) {
+        console.log(e.currentTarget.id);
+      });
+      $('input').keyup(function(e){
+        console.log(e.target.value);
+      });
+      $('#form').submit(function(e) {
+        e.preventDefault();
+        console.log('submitted');
+      });
     </script>
-</body>
+  </body>
 </html>
